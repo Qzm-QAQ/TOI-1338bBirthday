@@ -671,7 +671,7 @@ function goMaze(){
   buildMaze();
   showToast("开始", 800);
   mazeTip.textContent = isIOS() ? "iPhone 点“开启陀螺仪”授权；也可触摸拖动。" : "倾斜/触摸拖动/方向键都能玩。";
-  hideGyroBarAfter(2000);
+  hideGyroBarAfter(50000);
 
 }
 async function playBgmAfterWin(){
