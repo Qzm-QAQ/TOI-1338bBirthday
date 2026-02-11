@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>给杨珖的小给给 · 星空迷宫生日站</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="maze" aria-label="迷宫画布"></canvas>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+
+  <audio id="bgm" preload="none" loop></audio>
+
+  <!-- Minimal top bar -->
+  <header class="topHUD" id="topHUD">
+    <div class="hudLeft">
+      <div class="badge">✨ 星空</div>
+      <div class="hudTitle" id="hudTitle">开场</div>
+    </div>
+    <div class="hudRight">
+      <button class="iconBtn music" id="btnBgm" type="button" aria-label="BGM">
+        <span class="note">♪</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+
+    <!-- Intro -->
+    <section class="scene isActive" id="sceneIntro" data-scene="intro">
+      <div class="glass hero">
+        <div class="heroText">
+          <h1><span id="titleName">杨珖</span> · <span id="titleNick">小给给</span></h1>
+ 
+        </div>
+
+        <div class="heroArt">
+          <div class="envelopeWrap" id="envelopeWrap" role="button" aria-label="打开信封" tabindex="0">
+            <div class="envBack"></div>
+            <div class="envFront"></div>
+            <div class="envFlap"></div>
+            <div class="seal"></div>
+            <div class="tap">Tap</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter overlay -->
+      <div class="letterOverlay" id="letterOverlay" aria-hidden="true">
+        <div class="letterCard">
+          <div class="letterHead">
+            <div class="toLine" id="toLine">致：杨珖（小给给）</div>
+            <button class="iconBtn" id="btnCloseLetter" type="button" aria-label="关闭">✕</button>
+          </div>
+
+          <div class="letterBody">
+            <div class="photoCol">
+              <img class="photo" src="assets/img/role.jpg" alt="照片" />
+              <div class="photoTag">今日守护角色</div>
+            </div>
+
+            <div class="textCol">
+              <div class="typeTitle" id="letterTitle">给你一封会通关的信</div>
+              <div class="typeArea">
+                <div class="typeText" id="typeText"></div><span class="cursor" id="cursor">|</span>
+              </div>
+
+              <div class="typeActions">
+                <button class="btn ghost" id="btnSkipType" type="button">快进</button>
+                <button class="btn primary" id="btnEnterMaze" type="button" disabled>进入迷宫</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Maze -->
+    <section class="scene" id="sceneMaze" data-scene="maze">
+      <div class="glass hudBar" id="gyroBar">
+        <div class="hudBarLeft">
+          <div class="big">🎮 迷宫</div>
+          <div class="small" id="mazeTip">iPhone 先点开启陀螺仪；也可触摸拖动 / 方向键。</div>
+        </div>
+        <div class="hudBarRight">
+          <button class="btn primary" id="btnMotion" type="button">开启陀螺仪</button>
+          <button class="btn" id="btnReset" type="button">重开</button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <!-- Finale -->
+    <section class="scene" id="sceneFinale" data-scene="finale">
+      <div class="glass finale">
+        <div class="finalTop">
+          <div>
+            <h2 id="finalTitle">🎉 通关啦！</h2>
+            <p class="lead pre" id="finalMsg"></p>
+          </div>
+          <div class="finalBtns">
+            <button class="btn primary" id="btnBoom" type="button">烟花</button>
+            <button class="btn" id="btnReplay" type="button">再玩一次</button>
+          </div>
+        </div>
+
+        <div class="wall" id="photoWall"></div>
+      </div>
+
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <img id="lightboxImg" alt="放大照片" />
+      </div>
+    </section>
+
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
